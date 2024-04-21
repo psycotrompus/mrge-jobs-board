@@ -53,6 +53,9 @@ importers:
       front-matter:
         specifier: ^4.0.2
         version: 4.0.2
+      h3:
+        specifier: ^1.11.1
+        version: 1.11.1
       marked:
         specifier: ^5.0.2
         version: 5.1.2
@@ -102,6 +105,9 @@ importers:
       '@nx/vite':
         specifier: ~18.0.0
         version: 18.0.8(@babel/traverse@7.24.1)(@types/node@20.12.7)(nx@18.0.8)(typescript@5.3.3)(vite@5.2.9(@types/node@20.12.7)(less@4.1.3)(sass@1.75.0)(stylus@0.59.0)(terser@5.30.3))(vitest@1.5.0(@types/node@20.12.7)(jsdom@22.1.0)(less@4.1.3)(sass@1.75.0)(stylus@0.59.0)(terser@5.30.3))
+      '@types/jest':
+        specifier: ^29.5.12
+        version: 29.5.12
       '@types/rsocket-core':
         specifier: ^0.0.11
         version: 0.0.11
@@ -2387,6 +2393,9 @@ packages:
 
   '@types/istanbul-reports@3.0.4':
     resolution: {integrity: sha512-pk2B1NWalF9toCRu6gjBzR69syFjP4Od8WRAX+0mmf9lAjCRicLOWc+ZrxZHx/0XRjotgkF9t6iaMJ+aXcOdZQ==}
+
+  '@types/jest@29.5.12':
+    resolution: {integrity: sha512-eDC8bTvT/QhYdxJAulQikueigY5AsdBRH2yDKW3yveW7svY3+DzN84/2NUgkw10RTiJbWqZrTtoGVdYlvFJdLw==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -11139,6 +11148,11 @@ snapshots:
   '@types/istanbul-reports@3.0.4':
     dependencies:
       '@types/istanbul-lib-report': 3.0.3
+
+  '@types/jest@29.5.12':
+    dependencies:
+      expect: 29.7.0
+      pretty-format: 29.7.0
 
   '@types/json-schema@7.0.15': {}
 

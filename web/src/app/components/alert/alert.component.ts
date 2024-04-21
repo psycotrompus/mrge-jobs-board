@@ -32,7 +32,7 @@ export default class AlertComponent {
   message = signal('');
 
   constructor(
-      private zone: NgZone,
+      public zone: NgZone,
       private dialogRef: MatDialogRef<AlertComponent>,
       @Inject(MAT_DIALOG_DATA) private data: AlertData
   ) {
