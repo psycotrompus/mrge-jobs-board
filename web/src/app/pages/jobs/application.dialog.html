@@ -1,0 +1,24 @@
+<p class="text-sm p-2">Your applying for</p>
+<h3 mat-dialog-title class="text-lg">{{ job.name }}</h3>
+<mat-dialog-content>
+  <div class="min-w-lg flex flex-col">
+    <mat-form-field>
+      <mat-label>Full Name</mat-label>
+      <input matInput [(ngModel)]="application.name"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="application.email"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Message to Employer</mat-label>
+      <textarea matInput [(ngModel)]="application.message"></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="w-full flex justify-end space-x-4">
+    <button mat-button color="default" (click)="close()">No Thanks</button>
+    <button mat-button color="primary" (click)="submit()">Send Application</button>
+  </div>
+</mat-dialog-actions>

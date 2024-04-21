@@ -1,0 +1,11 @@
+<h3 mat-dialog-title class="text-lg">{{ title() }}</h3>
+<mat-dialog-content>
+  <div class="min-w-sm">
+    <p>{{ message() }}</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="w-full flex justify-end">
+    <button mat-button color="primary" (click)="dismiss()">OK</button>
+  </div>
+</mat-dialog-actions>
