@@ -3,7 +3,6 @@ package com.mrge.jobs.service;
 import com.mrge.jobs.dto.JobXmlDto;
 import lombok.Getter;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;

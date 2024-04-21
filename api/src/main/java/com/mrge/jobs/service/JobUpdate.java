@@ -93,6 +93,7 @@ class JobUpdate {
       var factory = SAXParserFactory.newInstance();
       var parser = factory.newSAXParser();
       var handler = new JobsSaxHandler();
+      //noinspection BlockingMethodInNonBlockingContext
       parser.parse(is, handler);
       var jobs = handler.getJobs();
       log.debug("parseJobs(InputStream) - Found jobs: {}", jobs);
