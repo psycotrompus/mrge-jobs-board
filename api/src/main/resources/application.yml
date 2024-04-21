@@ -1,0 +1,17 @@
+jobs.url: https://mrge-group-gmbh.jobs.personio.de/xml
+
+debug: false
+
+logging.level:
+  com.mrge: trace
+  root: info
+
+spring.application.name: mrge-jobs-api
+spring:
+  datasource:
+    url: jdbc:h2:mem:jobs
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jackson:
+    date-format: uuuu-MM-dd'T'HH:mm:ss
