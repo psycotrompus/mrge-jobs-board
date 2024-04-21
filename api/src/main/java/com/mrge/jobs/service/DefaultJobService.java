@@ -40,9 +40,9 @@ class DefaultJobService implements JobService {
           .office(job.getOffice())
           .url(baseUrl.substring(0, baseUrl.length() - 1) + "/" + job.getId())
           .name(job.getName());
-      return descRepo.findByJobId(job.getId()).doOnNext(desc -> {
-        builder.description(new DescriptionDto(desc.getId(), desc.getName(), desc.getDescription()));
-      }).collectList().map(x -> builder.build());
+      return descRepo.findByJobId(job.getId())
+          .doOnNext(desc -> builder.description(new DescriptionDto(desc.getId(), desc.getName(), desc.getDescription())))
+          .collectList().map(x -> builder.build());
     });
   }
 

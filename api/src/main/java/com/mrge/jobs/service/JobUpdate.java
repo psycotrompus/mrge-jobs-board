@@ -17,6 +17,7 @@ import reactor.core.publisher.Mono;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 @Slf4j
 @Component
@@ -76,7 +77,7 @@ class JobUpdate {
             sink.error(new JobUpdateException("Failed to retrieve job postings."));
           }
           try {
-            sink.next(res.getBody().getInputStream());
+            sink.next(Objects.requireNonNull(res.getBody()).getInputStream());
           }
           catch (IOException ex) {
             sink.error(new JobUpdateException("Failed to retrieve response body.", ex));

@@ -1,6 +1,7 @@
 package com.mrge.jobs.service;
 
 import com.mrge.jobs.dto.JobXmlDto;
+import lombok.Getter;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -10,6 +11,7 @@ import java.util.List;
 
 class JobsSaxHandler extends DefaultHandler {
 
+  @Getter
   private final List<JobXmlDto> jobs = new ArrayList<>();
 
   private StringBuilder value;
@@ -27,7 +29,7 @@ class JobsSaxHandler extends DefaultHandler {
   private JobXmlDto.JobXmlDtoBuilder builder;
 
   @Override
-  public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+  public void startElement(String uri, String localName, String qName, Attributes attributes) {
     if ("position".equals(qName)) {
       builder = JobXmlDto.builder();
       return;
@@ -55,7 +57,7 @@ class JobsSaxHandler extends DefaultHandler {
   }
 
   @Override
-  public void characters(char[] ch, int start, int length) throws SAXException {
+  public void characters(char[] ch, int start, int length) {
     if (value == null) {
       value = new StringBuilder();
       jobDescName = new StringBuilder();
@@ -77,7 +79,7 @@ class JobsSaxHandler extends DefaultHandler {
   }
 
   @Override
-  public void endElement(String uri, String localName, String qName) throws SAXException {
+  public void endElement(String uri, String localName, String qName) {
     switch (qName) {
       case "id" -> builder.jobId(Long.parseLong(value.toString()));
       case "subcompany" -> builder.subcompany(value.toString());
@@ -115,7 +117,4 @@ class JobsSaxHandler extends DefaultHandler {
     }
   }
 
-  public List<JobXmlDto> getJobs() {
-    return jobs;
-  }
 }

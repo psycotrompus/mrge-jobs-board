@@ -19,8 +19,8 @@ public class GlobalExceptionHandler {
     return ResponseEntity.badRequest().body(ex.getMessage());
   }
 
-  @ExceptionHandler
-  public ResponseEntity<String> handleGeneric(Exception ex) {
+  @ExceptionHandler(Exception.class)
+  public ResponseEntity<String> handleGeneric() {
     return ResponseEntity.internalServerError().build();
   }
 }
