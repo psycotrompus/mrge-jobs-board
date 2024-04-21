@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 public interface JobService {
 
-  Flux<JobHeaderDto> getJobs(String baseUrl);
+  Flux<JobHeaderDto> getJobs();
 
   Mono<JobDetailsDto> getJobDetails(Integer id);
 

@@ -12,6 +12,7 @@ import com.mrge.jobs.dto.SubmissionDto;
 import com.mrge.jobs.exception.JobApplicationException;
 import com.mrge.jobs.exception.JobNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -31,14 +32,21 @@ class DefaultJobService implements JobService {
 
   private final ApplicationEventPublisher publisher;
 
+  private String jobBaseUrl;
+
+  @Value("${jobs.base-url}")
+  void setJobBaseUrl(String jobBaseUrl) {
+    this.jobBaseUrl = jobBaseUrl;
+  }
+
   @Override
-  public Flux<JobHeaderDto> getJobs(String baseUrl) {
+  public Flux<JobHeaderDto> getJobs() {
     return jobRepo.findAll().flatMap(job -> {
       var builder = JobHeaderDto.builder()
           .id(job.getId())
           .jobId(job.getJobId())
           .office(job.getOffice())
-          .url(baseUrl.substring(0, baseUrl.length() - 1) + "/" + job.getId())
+          .url(jobBaseUrl + job.getId())
           .name(job.getName());
       return descRepo.findByJobId(job.getId())
           .doOnNext(desc -> builder.description(new DescriptionDto(desc.getId(), desc.getName(), desc.getDescription())))

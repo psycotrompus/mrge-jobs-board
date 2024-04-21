@@ -1,4 +1,6 @@
-jobs.url: https://mrge-group-gmbh.jobs.personio.de/xml
+jobs:
+  url: https://mrge-group-gmbh.jobs.personio.de/xml
+  base-url: http://localhost:5173/jobs/
 
 debug: false
 

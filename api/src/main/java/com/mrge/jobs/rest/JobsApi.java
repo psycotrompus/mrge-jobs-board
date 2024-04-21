@@ -5,7 +5,6 @@ import com.mrge.jobs.dto.JobHeaderDto;
 import com.mrge.jobs.dto.SubmissionDto;
 import com.mrge.jobs.service.JobService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +22,8 @@ public class JobsApi {
   private final JobService jobSvc;
 
   @GetMapping
-  public Flux<JobHeaderDto> getJobs(ServerHttpRequest req) {
-    return jobSvc.getJobs(req.getURI().toString());
+  public Flux<JobHeaderDto> getJobs() {
+    return jobSvc.getJobs();
   }
 
   @GetMapping("/{jobId}")
