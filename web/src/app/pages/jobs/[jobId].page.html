@@ -1,0 +1,105 @@
+<div class="max-w-4xl">
+  <div class="flex flex-col space-y-2">
+    <h2 class="mb-4 text-4xl font-semibold">{{ job().name }}</h2>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Job ID:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().jobId }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Sub-company:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().subcompany }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Office:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().office }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="text-right">
+        <p class="text-gray-500">Department:</p>
+      </div>
+      <span class="text-white font-semibold">{{ job().department }}</span>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Recruiting Category:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().recruitingCategory }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Employment Type:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().employmentType }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Seniority:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().seniority }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Schedule:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().schedule }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Years of Experience:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().yearsOfExperience }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Keywords:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().keywords }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Occupation:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().occupation }}</span>
+      </div>
+    </div>
+    <div class="w-full flex flex-row space-x-2">
+      <div class="md:text-right">
+        <p class="text-gray-500">Occupation Category:</p>
+      </div>
+      <div>
+        <span class="text-white font-semibold">{{ job().occupationCategory }}</span>
+      </div>
+    </div>
+    <div class="flex flex-col mt-2 space-y-2">
+      <div *ngFor="let desc of job().descriptions" class="w-full flex flex-col">
+        <h4 class="text-lg">{{ desc.name }}</h4>
+        <div class="job-description" [innerHTML]="desc.description"></div>
+      </div>
+    </div>
+  </div>
+</div>

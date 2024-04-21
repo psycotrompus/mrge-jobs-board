@@ -1,7 +1,7 @@
 <div class="container">
   <div class="w-full flex flex-col md:flex-row md:flex-wrap">
     <div *ngFor="let job of jobs" class="m-2 p2-">
-      <app-card title="{{ job.name }}" subtitle="{{ job.office }}">
+      <app-card title="{{ job.name }}" subtitle="{{ job.office }}" url="{{ job.url }}">
         <card-body>
           <div class="flex flex-col mt-2 space-y-2">
             <div *ngFor="let desc of job.descriptions" class="w-full flex flex-col">

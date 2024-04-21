@@ -14,6 +14,8 @@ export default class CardComponent {
 
   @Input() title!: string;
 
+  @Input() url?: string | null;
+
   @Input() subtitle?: string | null;
 
   @Input() message?: string | null;
